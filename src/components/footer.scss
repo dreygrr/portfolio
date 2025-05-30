@@ -1,0 +1,6 @@
+@use '/src/mixins' as *;
+@use '/src/variables' as *;
+
+footer {
+  background-color: $dark-color;
+}

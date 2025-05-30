@@ -1,0 +1,46 @@
+@use '/src/variables' as *;
+@use '/src/mixins' as *;
+
+.project {
+  @include doFlex(column, center, stretch, $spacing-2);
+  width: 100%;
+
+  .actions {
+    @include doFlex(row, space-between, center, $spacing-2);
+    position: sticky; top: $spacing-2;
+  }
+
+  img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: $spacing-1;
+  }
+
+  p.description {
+    padding: $spacing-1;
+    line-height: 1.5rem;
+    border-radius: $spacing-1;
+    background-color: $secondary-color;
+  }
+}
+
+.tech-sheet {
+  @include doFlex(column, flex-start, center, $spacing-2);
+  width: 100%;
+  .softwares-used, .techs-used {
+    @include doFlex(row, flex-start, center, $spacing-2);
+    flex-wrap: wrap;
+
+    .software-used, .tech-used {
+      @include doFlex(column, flex-start, center, $spacing-1);
+    }
+    
+    img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      border-radius: $spacing-1;
+    }
+  }
+}

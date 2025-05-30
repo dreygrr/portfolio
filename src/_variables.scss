@@ -1,0 +1,21 @@
+@use 'sass:color' as color;
+
+// #region colors
+$white-color: #ecf5ff;
+$black-color: #0a0e12;
+
+$dark-color: #000000;
+
+// main colors
+$primary-color: #17d5ff;
+$secondary-color: #28313a;
+$accent-color: #00AACF;
+$background-color: $black-color;
+
+// #region sizes
+$spacing-1: .5em;
+$spacing-2: 1em;
+$spacing-3: 1.5em;
+$spacing-4: 3em;
+$spacing-5: 5em;
+// #endregion

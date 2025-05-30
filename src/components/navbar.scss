@@ -1,0 +1,60 @@
+@use '/src/variables' as *;
+@use '/src/mixins' as *;
+@use 'sass:color' as color;
+
+$nav-bg-color: rgba(
+  color.channel($background-color, "red", $space: rgb),
+  color.channel($background-color, "green", $space: rgb),
+  color.channel($background-color, "blue", $space: rgb),
+  0.8
+);
+
+// $nav-item-color: rgba(
+//   color.channel($background-color, "red", $space: rgb),
+//   color.channel($background-color, "green", $space: rgb),
+//   color.channel($background-color, "blue", $space: rgb),
+//   0.4
+// );
+
+nav {
+  position: sticky; bottom: 0; z-index: 1000;
+  width: 100%;
+  padding: $spacing-1 $spacing-2;
+  background: $nav-bg-color;
+  backdrop-filter: blur(30px);
+
+  ul {
+    @include doFlex(row, space-between, center, $spacing-1);
+    list-style-type: none;
+
+    li {
+      a {
+        @include doFlex(row, center, center, 0);
+        // padding: $spacing-1;
+        text-transform: capitalize;
+        cursor: pointer;
+        border-radius: $spacing-1;
+
+        .nav-item-content { 
+          @include doFlex(row, center, center, $spacing-1);
+          padding: $spacing-1 0;
+          border-bottom: 3px solid transparent;
+
+          .item-icon {
+            @include doFlex(row, center, center, 0);
+            min-width: 30px; max-width: 30px;
+            min-height: 30px; min-height: 30px;
+  
+            mask-image: var(--icon-url); mask-position: center; mask-size: 100%; mask-repeat: no-repeat;
+            background-color: $white-color;
+          }
+        }
+
+
+        &.active {
+          .nav-item-content { border-bottom: 3px solid $white-color; }
+        }
+      }
+    }
+  }
+}
