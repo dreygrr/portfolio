@@ -17,7 +17,10 @@ const Project: React.FC<ProjectProps> = ({project, onClose}) => (
 
       <img src={project.thumbnail} alt={project.title} />
       <h4>{project.title}</h4>
-      <p className='description'>{project.desc}</p>
+      <p className='description'>
+        <span className='year'>Made in {project.year}</span>
+        {project.desc}
+      </p>
     </div>
 
     <div className="tech-sheet">
@@ -43,6 +46,13 @@ const Project: React.FC<ProjectProps> = ({project, onClose}) => (
           ))}
         </div>
       )}
+    </div>
+
+    <div className="hook">
+      <h2>Want something like this?</h2>
+      <p>Contact me through any channel below</p>
+
+      <button className='btn btn-primary'>Contact me</button>
     </div>
   </div>
 );

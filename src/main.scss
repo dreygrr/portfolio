@@ -11,7 +11,7 @@ body {
   background-color: $background-color; color: $white-color;
 }
 
-h2 { font-size: 2rem; }
+h2 { font-size: 3rem; margin: $spacing-2 0; text-align: center; }
 h3 { font-size: 1.5rem; }
 h4 { font-size: 1.25rem; }
 
@@ -20,6 +20,8 @@ p { font-weight: 100; }
 .container {
   @include doFlex(column, center, center, $spacing-3);
   padding: $spacing-2;
+  margin: auto;
+  max-width: 1320px;
 }
 
 .gallery {
@@ -44,6 +46,22 @@ p { font-weight: 100; }
       width: 100%;
       padding: $spacing-1;
       background-color: $dark-color; color: $white-color;
+    }
+  }
+
+  @media (min-width: 768px) {
+    flex-direction: row; flex-wrap: wrap;
+    justify-content: flex-start;
+    a {
+      flex: calc(50% - $spacing-2);
+      max-width: calc(50% - ($spacing-2 / 2));
+    }
+  }
+
+  @media (min-width: 1200px) {
+    a { 
+      flex: calc(33.33% - $spacing-2);
+      max-width: calc(33.33% - ($spacing-2 / 2));
     }
   }
 }
