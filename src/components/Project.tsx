@@ -9,18 +9,21 @@ interface ProjectProps {
 
 const Project: React.FC<ProjectProps> = ({project, onClose}) => (
   <div className="container">
-    <div className="project">
-      <div className="actions">
-        <button className='btn btn-primary' type="button" onClick={onClose}><i className='fa-solid fa-arrow-left'></i>Back to gallery</button>
-        <button className='btn btn-secondary'><i className='fa-regular fa-share-nodes'></i></button>
-      </div>
+    <div className="actions">
+      <button className='btn btn-primary' type="button" onClick={onClose}><i className='fa-solid fa-arrow-left'></i>Go back</button>
+      <p className='project-title'>{project.title}</p>
+      <button className='btn btn-secondary'><i className='fa-regular fa-share-nodes'></i></button>
+    </div>
 
-      <img src={project.thumbnail} alt={project.title} />
-      <h4>{project.title}</h4>
-      <p className='description'>
-        <span className='year'>Made in {project.year}</span>
-        {project.desc}
-      </p>
+    <div className="project">
+      <iframe src={project.src} allow='autoplay' allowFullScreen />
+      <div className="project-info">
+        <h4>{project.title}</h4>
+        <p className='description'>
+          <span className='year'>Made in {project.year}</span>
+          {project.desc}
+        </p>
+      </div>
     </div>
 
     <div className="tech-sheet">
@@ -49,10 +52,9 @@ const Project: React.FC<ProjectProps> = ({project, onClose}) => (
     </div>
 
     <div className="hook">
-      <h2>Want something like this?</h2>
-      <p>Contact me through any channel below</p>
-
-      <button className='btn btn-primary'>Contact me</button>
+      <h2>Interested in a similar project?</h2>
+      <p>If you'd like to discuss how I can help bring your ideas to life, feel free to reach out.</p>
+      <button className='btn btn-large btn-primary'>Get in touch</button>
     </div>
   </div>
 );

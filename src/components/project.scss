@@ -1,31 +1,66 @@
 @use '/src/variables' as *;
 @use '/src/mixins' as *;
+@use 'sass:color' as color;
+
+$project-title-bg-color: rgba(
+  color.channel($secondary-color, "red", $space: rgb),
+  color.channel($secondary-color, "green", $space: rgb),
+  color.channel($secondary-color, "blue", $space: rgb),
+  0.8
+);
+
+.actions {
+  @include doFlex(row, stretch, stretch, $spacing-2);
+  position: sticky; top: $spacing-2;
+  width: 100%;
+
+  @media (min-width: 1200px) {
+    top: calc($spacing-2 + 64px);
+  }
+
+  .project-title {
+    @include doFlex(row, flex-start, center, 0);
+    padding: $spacing-1;
+    border-radius: $spacing-1;
+    flex: 1 1 0;
+    background-color: $project-title-bg-color;
+    backdrop-filter: blur(30px);
+  }
+}
 
 .project {
   @include doFlex(column, center, stretch, $spacing-2);
   width: 100%;
 
-  .actions {
-    @include doFlex(row, space-between, center, $spacing-2);
-    position: sticky; top: $spacing-2;
+  @media (min-width: 1200px) {
+    flex-direction: row; align-items: stretch;
   }
 
-  img {
+  iframe {
     width: 100%;
-    height: 240px;
+    height: 360px;
     object-fit: cover;
     border-radius: $spacing-1;
   }
 
-  p.description {
-    padding: $spacing-1;
-    line-height: 1.5rem;
-    border-radius: $spacing-1;
-    background-color: $secondary-color;
+  .project-info {
+    @include doFlex(column, center, stretch, $spacing-2);
 
-    .year {
-      display: block;
-      margin-bottom: $spacing-1; 
+    @media (min-width: 1200px) {
+      justify-content: stretch;
+      flex-shrink: 2;
+    }
+
+    p.description {
+      padding: $spacing-1;
+      line-height: 1.5rem;
+      border-radius: $spacing-1;
+      background-color: $secondary-color;
+  
+      .year {
+        display: block;
+        margin-bottom: $spacing-1; 
+      }
     }
   }
 }
@@ -48,4 +83,9 @@
       border-radius: $spacing-1;
     }
   }
+}
+
+.hook {
+  @include doFlex(column, center, center, $spacing-2);
+  text-align: center;
 }

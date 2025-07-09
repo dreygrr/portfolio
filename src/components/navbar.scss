@@ -17,15 +17,32 @@ $nav-bg-color: rgba(
 // );
 
 nav {
+  @include doFlex(row, stretch, center, $spacing-2);
   position: sticky; bottom: 0; z-index: 1000;
   width: 100%;
   padding: $spacing-1 $spacing-2;
   background: $nav-bg-color;
   backdrop-filter: blur(30px);
 
+  h3.logo { 
+    display: none; 
+    @media (min-width: 1200px) { display: block; width: 100%; }
+  }
+
+  @media (min-width: 1200px) {
+    order: -1;
+    bottom: unset; top: 0;
+    justify-content: space-between;
+  }
+
   ul {
     @include doFlex(row, space-between, center, $spacing-1);
     list-style-type: none;
+    width: 100%;
+
+    @media (min-width: 1200px) {
+      justify-content: flex-end; gap: $spacing-5;
+    }
 
     li {
       a {

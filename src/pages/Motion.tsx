@@ -35,7 +35,7 @@ const Motion: React.FC = () => {
               setSelectedProject(project);
             }}
           >
-            <img src={project.thumbnail} alt={project.title} />
+            <img src={project.src} alt={project.title} />
             <p>{project.title}</p>
           </a>
         ))}

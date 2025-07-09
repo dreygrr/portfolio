@@ -11,6 +11,10 @@ body {
   background-color: $background-color; color: $white-color;
 }
 
+.app {
+  @include doFlex(column, stretch, center, 0);
+}
+
 h2 { font-size: 3rem; margin: $spacing-2 0; text-align: center; }
 h3 { font-size: 1.5rem; }
 h4 { font-size: 1.25rem; }
@@ -18,10 +22,11 @@ h4 { font-size: 1.25rem; }
 p { font-weight: 100; }
 
 .container {
-  @include doFlex(column, center, center, $spacing-3);
+  @include doFlex(column, flex-start, center, $spacing-3);
   padding: $spacing-2;
-  margin: auto;
-  max-width: 1320px;
+  max-width: 1320px; min-height: 66vh;
+  width: 100%;
+  margin-bottom: $spacing-5;
 }
 
 .gallery {
@@ -73,11 +78,16 @@ p { font-weight: 100; }
   border: none; border-radius: $spacing-1;
   font-weight: bold;
   cursor: pointer;
-}
 
-.btn-primary {
-  background-color: $primary-color;
-}
-.btn-secondary {
-  background-color: $secondary-color; color: $white-color;
+  &.btn-primary {
+    background-color: $primary-color;
+  }
+
+  &.btn-secondary {
+    background-color: $secondary-color; color: $white-color;
+  }
+
+  &.btn-large {
+    padding: $spacing-2 $spacing-4;
+  }
 }

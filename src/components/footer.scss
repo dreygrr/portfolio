@@ -2,5 +2,44 @@
 @use '/src/variables' as *;
 
 footer {
+  width: 100%;
   background-color: $dark-color;
+
+  ul { list-style-type: none; }
+
+  a { color: $link-color; }
+
+  .container {
+    @include doFlex(column, center, center, $spacing-3);
+    min-height: unset;
+    margin: auto;
+
+    .information {
+      @include doFlex(row, space-between, center, $spacing-2);
+      width: 100%;
+    
+      .links {
+        @include doFlex(column, flex-start, flex-start, $spacing-2);
+    
+        ul {
+          @include doFlex(column, flex-start, flex-start, $spacing-1);
+        }
+      }
+    
+      .profile {
+        @include doFlex(column, center, flex-start, $spacing-2);
+        .profile-info {
+          @include doFlex(column, flex-start, flex-start, $spacing-2);
+    
+          ul.socials {
+            @include doFlex(row, flex-start, center, $spacing-2);
+    
+            li a i { font-size: 24px; }
+          }
+        }
+      }
+    }
+
+    margin-bottom: 0;
+  }
 }

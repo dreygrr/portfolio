@@ -17,15 +17,15 @@ const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<Tab>('dev');
 
   return (
-    <>
+    <div className='app'>
       {activeTab === 'dev' && <Development />}
       {activeTab === 'motion' && <Motion />}
       {activeTab === 'anim' && <Anim />}
       {activeTab === 'contact' && <Contact />}
       {activeTab === 'about' && <About />}
-      <Footer />
+      <Footer onChangeTab={setActiveTab} />
       <Navbar activeTab={activeTab} onChangeTab={setActiveTab} />
-    </>
+    </div>
   )
 }
 

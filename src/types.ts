@@ -13,7 +13,7 @@ export interface ProjectType {
   title: string;
   desc: string;
   year: number;
-  thumbnail: string;
+  src: string;
   softwaresUsed?: SoftwareUsed;
   techsUsed?: TechUsed;
 }

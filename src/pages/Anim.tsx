@@ -34,7 +34,7 @@ const Anim: React.FC = () => {
               setSelectedProject(project);
             }}
           >
-            <img width="500px" src={project.thumbnail} alt={project.title} />
+            <img width="500px" src={project.src} alt={project.title} />
             <p>{project.title}</p>
           </a>
         ))}
