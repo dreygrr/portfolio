@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
-import type { ProjectType } from '../types.ts';
+import type { ProjectType, Tab } from '../types.ts';
 import { Project } from '../components/Project.tsx';
 
 import { projects } from '../projects.ts';
 
 import './dev.scss';
 
+interface DevelopmentProps {
+  onChangeTab: (tab: Tab) => void;
+}
+
 const devProjects = projects.development;
 
-const Development: React.FC = () => {
+const Development: React.FC<DevelopmentProps> = ({onChangeTab}) => {
   const [selected, setSelectedProject] = useState<ProjectType | null>(null);
 
   if (selected) {
@@ -16,6 +20,7 @@ const Development: React.FC = () => {
       selected && (
         <Project
           project={selected}
+          onChangeTab={onChangeTab}
           onClose={() => setSelectedProject(null)}
         />
       )

@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
-import type { ProjectType } from '../types.ts';
+import type { ProjectType, Tab } from '../types.ts';
 import { Project } from '../components/Project.tsx';
 import { projects } from '../projects.ts';
 
+interface AnimationProps {
+  onChangeTab: (tab: Tab) => void;
+}
+
 const animProjects = projects.animations;
 
-const Anim: React.FC = () => {
+const Anim: React.FC<AnimationProps> = ({ onChangeTab }) => {
   const [selected, setSelectedProject] = useState<ProjectType | null>(null);
 
   if (selected) {
@@ -13,6 +17,7 @@ const Anim: React.FC = () => {
       selected && (
         <Project
           project={selected}
+          onChangeTab={onChangeTab}
           onClose={() => setSelectedProject(null)}
         />
       )

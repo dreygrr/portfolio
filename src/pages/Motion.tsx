@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
-import type { ProjectType } from '../types.ts';
+import type { ProjectType, Tab } from '../types.ts';
 import { Project } from '../components/Project';
 
 import { projects } from '../projects.ts';
 
+interface MotionProps {
+  onChangeTab: (tab: Tab) => void;
+}
+
 const motionProjects = projects.motion;
 
-const Motion: React.FC = () => {
+const Motion: React.FC<MotionProps> = ({ onChangeTab }) => {
   const [selected, setSelectedProject] = useState<ProjectType | null>(null);
 
   if (selected) {
@@ -14,6 +18,7 @@ const Motion: React.FC = () => {
       selected && (
         <Project
           project={selected}
+          onChangeTab={onChangeTab}
           onClose={() => setSelectedProject(null)}
         />
       )

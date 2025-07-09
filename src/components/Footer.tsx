@@ -4,11 +4,8 @@ import type { Tab } from "../types.ts";
 import './footer.scss';
 
 interface FooterProps {
-  // activeTab: Tab;
   onChangeTab: (tab: Tab) => void;
 }
-
-// const tabs: (Tab | '')[] = ['dev', 'motion', 'anim', 'contact', ''];
 
 const Footer: React.FC<FooterProps> = ({ onChangeTab }) => {
   return (
@@ -55,7 +52,7 @@ const Footer: React.FC<FooterProps> = ({ onChangeTab }) => {
 
           <div className='profile'>
             <div className="profile-info">
-              <button className='btn btn-primary'>Get in touch</button>
+              <button type='button' onClick={() => onChangeTab('contact')} className='btn btn-primary'>Get in touch</button>
 
               <ul className='socials'>
                 <li><a href="https://www.github.com/dreygrr" target="_blank"><i className='fa-brands fa-github' /></a></li>

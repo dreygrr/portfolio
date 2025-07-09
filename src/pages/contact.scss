@@ -1,0 +1,13 @@
+@use '/src/variables' as *;
+@use '/src/mixins' as *;
+
+ul.contact-list {
+  @include doFlex(row, stretch, stretch, $spacing-2);
+  flex-wrap: wrap;
+  width: 100%;
+  list-style-type: none;
+
+  li a {
+    text-decoration: none;
+  }
+}

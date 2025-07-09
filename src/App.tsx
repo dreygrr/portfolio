@@ -18,15 +18,15 @@ const App: React.FC = () => {
 
   return (
     <div className='app'>
-      {activeTab === 'dev' && <Development />}
-      {activeTab === 'motion' && <Motion />}
-      {activeTab === 'anim' && <Anim />}
+      {activeTab === 'dev' && <Development onChangeTab={setActiveTab} />}
+      {activeTab === 'motion' && <Motion onChangeTab={setActiveTab} />}
+      {activeTab === 'anim' && <Anim onChangeTab={setActiveTab} />}
       {activeTab === 'contact' && <Contact />}
       {activeTab === 'about' && <About />}
       <Footer onChangeTab={setActiveTab} />
       <Navbar activeTab={activeTab} onChangeTab={setActiveTab} />
     </div>
-  )
+  );
 }
 
 export { App };

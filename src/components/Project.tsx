@@ -1,13 +1,14 @@
 import React from 'react';
 import './project.scss';
-import type { ProjectType } from '../types.ts';
+import type { ProjectType, Tab } from '../types.ts';
 
 interface ProjectProps {
   project: ProjectType;
+  onChangeTab: (tab: Tab) => void;
   onClose: () => void;
 }
 
-const Project: React.FC<ProjectProps> = ({project, onClose}) => (
+const Project: React.FC<ProjectProps> = ({project, onChangeTab, onClose}) => (
   <div className="container">
     <div className="actions">
       <button className='btn btn-primary' type="button" onClick={onClose}><i className='fa-solid fa-arrow-left'></i>Go back</button>
@@ -54,7 +55,7 @@ const Project: React.FC<ProjectProps> = ({project, onClose}) => (
     <div className="hook">
       <h2>Interested in a similar project?</h2>
       <p>If you'd like to discuss how I can help bring your ideas to life, feel free to reach out.</p>
-      <button className='btn btn-large btn-primary'>Get in touch</button>
+      <button type='button' onClick={() => onChangeTab('contact')} className='btn btn-large btn-primary'>Get in touch</button>
     </div>
   </div>
 );
