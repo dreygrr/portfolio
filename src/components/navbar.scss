@@ -47,10 +47,11 @@ nav {
     li {
       a {
         @include doFlex(row, center, center, 0);
-        // padding: $spacing-1;
         text-transform: capitalize;
+        text-decoration: none;
         cursor: pointer;
         border-radius: $spacing-1;
+        color: $white-color;
 
         .nav-item-content { 
           @include doFlex(row, center, center, $spacing-1);

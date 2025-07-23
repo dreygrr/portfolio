@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-
-import type { Tab } from './types.ts';
+import React from 'react';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
@@ -10,21 +9,33 @@ import { Motion } from './pages/Motion';
 import { Anim } from './pages/Anim.tsx';
 import { Contact } from './pages/Contact';
 import { About } from './pages/About';
+import { ProjectPage } from './pages/ProjectPage.tsx';
 
 import './main.scss';
 
 const App: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<Tab>('dev');
-
   return (
     <div className='app'>
-      {activeTab === 'dev' && <Development onChangeTab={setActiveTab} />}
-      {activeTab === 'motion' && <Motion onChangeTab={setActiveTab} />}
-      {activeTab === 'anim' && <Anim onChangeTab={setActiveTab} />}
-      {activeTab === 'contact' && <Contact />}
-      {activeTab === 'about' && <About />}
-      <Footer onChangeTab={setActiveTab} />
-      <Navbar activeTab={activeTab} onChangeTab={setActiveTab} />
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Navigate to="/dev" replace />} />
+
+          <Route path='/dev' element={<Development />} />
+          <Route path='/dev/:id' element={<ProjectPage />} />
+
+          <Route path='/motion' element={<Motion />} />
+          <Route path='/motion/:id' element={<ProjectPage />} />
+
+          <Route path='/anim' element={<Anim />} />
+          <Route path='/anim/:id' element={<ProjectPage />} />
+
+          <Route path='/contact' element={<Contact />} />
+          <Route path='/about' element={<About />} />
+        </Routes>
+        
+        <Footer />
+        <Navbar />
+      </BrowserRouter>
     </div>
   );
 }

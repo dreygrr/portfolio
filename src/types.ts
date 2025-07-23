@@ -17,5 +17,3 @@ export interface ProjectType {
   softwaresUsed?: SoftwareUsed;
   techsUsed?: TechUsed;
 }
-
-export type Tab = 'dev' | 'motion' | 'anim' | 'contact' | 'about';

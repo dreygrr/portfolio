@@ -88,4 +88,8 @@ $project-title-bg-color: rgba(
 .hook {
   @include doFlex(column, center, center, $spacing-2);
   text-align: center;
+
+  .buttons {
+    @include doFlex(row, center, center, $spacing-2);
+  }
 }

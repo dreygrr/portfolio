@@ -1,13 +1,9 @@
 import React from 'react';
-import type { Tab } from "../types.ts";
 
 import './footer.scss';
+import { Link } from 'react-router-dom';
 
-interface FooterProps {
-  onChangeTab: (tab: Tab) => void;
-}
-
-const Footer: React.FC<FooterProps> = ({ onChangeTab }) => {
+const Footer: React.FC = () => {
   return (
     <footer>
       <div className="container">
@@ -18,41 +14,26 @@ const Footer: React.FC<FooterProps> = ({ onChangeTab }) => {
             <p><b>Useful links</b></p>
             <ul>
               <li>
-                <a
-                 href='#'
-                 onClick={() => onChangeTab('dev')}
-                >Development</a>
+                <Link to="/dev">Development</Link>
               </li>
               <li>
-                <a
-                 href='#'
-                 onClick={() => onChangeTab('motion')}
-                >Motion Design</a>
+                <Link to="/motion">Motion Design</Link>
               </li>
               <li>
-                <a
-                 href='#'
-                 onClick={() => onChangeTab('anim')}
-                >Animation</a>
+                <Link to="/anim">Animation</Link>
               </li>
               <li>
-                <a
-                 href='#'
-                 onClick={() => onChangeTab('contact')}
-                >Contact</a>
+                <Link to="/contact">Contact</Link>
               </li>
               <li>
-                <a
-                 href='#'
-                 onClick={() => onChangeTab('about')}
-                >About</a>
+                <Link to="/about">About</Link>
               </li>
             </ul>
           </div>
 
           <div className='profile'>
             <div className="profile-info">
-              <button type='button' onClick={() => onChangeTab('contact')} className='btn btn-primary'>Get in touch</button>
+              <Link to="/contact" className='btn btn-primary'>Get in touch</Link>
 
               <ul className='socials'>
                 <li><a href="https://www.github.com/dreygrr" target="_blank"><i className='fa-brands fa-github' /></a></li>

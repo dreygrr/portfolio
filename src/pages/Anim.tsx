@@ -3,13 +3,9 @@ import type { ProjectType, Tab } from '../types.ts';
 import { Project } from '../components/Project.tsx';
 import { projects } from '../projects.ts';
 
-interface AnimationProps {
-  onChangeTab: (tab: Tab) => void;
-}
-
 const animProjects = projects.animations;
 
-const Anim: React.FC<AnimationProps> = ({ onChangeTab }) => {
+const Anim: React.FC = () => {
   const [selected, setSelectedProject] = useState<ProjectType | null>(null);
 
   if (selected) {

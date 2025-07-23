@@ -81,6 +81,8 @@ p { font-weight: 100; }
   border: none; border-radius: $spacing-1;
   font-weight: bold;
   cursor: pointer;
+  text-decoration: none;
+  outline: none;
 
   transition: .1s;
 
@@ -89,12 +91,15 @@ p { font-weight: 100; }
 
     &:hover, &:focus, &:active {
       box-shadow: 0 .2em 2em $link-color;
-      outline: none;
     }
   }
 
   &.btn-secondary {
     background-color: $secondary-color; color: $white-color;
+
+    &:hover, &:focus, &:active {
+      box-shadow: 0 .2em 2em $secondary-color;
+    }
   }
 
   &.btn-large {
