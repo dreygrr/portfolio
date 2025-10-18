@@ -14,6 +14,7 @@ export interface ProjectType {
   desc: string;
   year: number;
   src: string;
+  thumbnail?: string;
   softwaresUsed?: SoftwareUsed;
   techsUsed?: TechUsed;
 }

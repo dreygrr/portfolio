@@ -1,11 +1,12 @@
 import { projects } from '../projects.ts';
 
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import './dev.scss';
+import type { ProjectType } from '../types.ts';
+import { Gallery } from '../components/Gallery.tsx';
 
-const devProjects = projects.development;
+const devProjects = projects.development as ProjectType[];
 
 const Development: React.FC = () => {
   return (
@@ -13,17 +14,7 @@ const Development: React.FC = () => {
       <h2>Development</h2>
       <p>Check out my dev projects!</p>
 
-      <div className="gallery">
-        {devProjects.map(project => (
-          <Link 
-            key={project.id}
-            to={`/dev/${project.id}`}
-          >
-            <img src={project.src} alt={project.title} />
-            <p>{project.title}</p>
-          </Link>
-        ))}
-      </div>
+      <Gallery projects={devProjects} category='dev' />
     </div>
   );
 }

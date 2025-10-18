@@ -16,6 +16,10 @@ $nav-bg-color: rgba(
 //   0.4
 // );
 
+body {
+  overflow-x: hidden;
+}
+
 nav {
   @include doFlex(row, stretch, center, $spacing-2);
   position: sticky; bottom: 0; z-index: 1000;
@@ -24,8 +28,11 @@ nav {
   background: $nav-bg-color;
   backdrop-filter: blur(30px);
 
-  h3.logo { 
+  a.logo-link {
     display: none; 
+    color: $white-color;
+    text-decoration: none;
+
     @media (min-width: 1200px) { display: block; width: 100%; }
   }
 
@@ -35,7 +42,7 @@ nav {
     justify-content: space-between;
   }
 
-  ul {
+  ul.main-links {
     @include doFlex(row, space-between, center, $spacing-1);
     list-style-type: none;
     width: 100%;
@@ -52,6 +59,8 @@ nav {
         cursor: pointer;
         border-radius: $spacing-1;
         color: $white-color;
+
+        transition: .2s;
 
         .nav-item-content { 
           @include doFlex(row, center, center, $spacing-1);
@@ -72,6 +81,70 @@ nav {
         &.active {
           .nav-item-content { border-bottom: 3px solid $white-color; }
         }
+
+        &.contact-link {
+          // padding: 0 $spacing-2;
+          font-weight: bold;
+          background-color: transparent; color: $primary-color;
+          // border: 1px solid $primary-color;
+          transition: .2s;
+
+          .item-icon { background-color: $primary-color; transition: .2s; }
+
+          // &:hover, &:focus, &:active {
+          //   background-color: $primary-color; color: $black-color;
+          //   border-color: transparent;
+
+          //   .item-icon { background-color: $black-color; }
+          // }
+
+          &.active {
+            // background-color: $primary-color; color: $black-color;
+            // border-color: transparent;
+
+            // .item-icon { background-color: $black-color; }
+
+            .nav-item-content { border-color: $primary-color; }
+          }
+        }
+      }
+    }
+  }
+
+  ul.additional-links {
+    position: fixed;
+    right: 0; bottom: var(--navbar-height);
+    transform: translateX(100%);
+    @include doFlex(column, flex-end, center, $spacing-1);
+
+    min-width: 150px;
+    height: calc(100dvh - var(--navbar-height));
+    padding: $spacing-1;
+
+    background-color: $dark-color;
+    list-style-type: none;
+
+    transition: .2s;
+
+    &.active {
+      transform: translateX(0);
+    }
+
+    @media (min-width: 1200px) {
+      bottom: unset; top: var(--navbar-height);
+      height: unset;
+    }
+
+    li {
+      width: 100%;
+
+      a {
+        @include doFlex(row, center, center, $spacing-1);
+        padding: $spacing-1 $spacing-2;
+        
+        text-decoration: none;
+        border-radius: $spacing-1;
+        background-color: $black-color; color: $white-color;
       }
     }
   }

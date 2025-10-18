@@ -12,6 +12,7 @@ import { About } from './pages/About';
 import { ProjectPage } from './pages/ProjectPage.tsx';
 
 import './main.scss';
+import { AboutMe } from './pages/AboutMe.tsx';
 
 const App: React.FC = () => {
   return (
@@ -31,6 +32,7 @@ const App: React.FC = () => {
 
           <Route path='/contact' element={<Contact />} />
           <Route path='/about' element={<About />} />
+          <Route path='/me' element={<AboutMe />} />
         </Routes>
         
         <Footer />

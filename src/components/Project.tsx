@@ -19,19 +19,32 @@ const Project: React.FC<ProjectProps> = ({project}) => {
         <button className='btn btn-secondary'><i className='fa-regular fa-share-nodes'></i></button>
       </div>
 
-      <div className="project">
-        <iframe src={project.src} allow='autoplay' allowFullScreen />
+      <div id='divProjeto' className="project">
+        <iframe className='mobile' src={project.src} allow='autoplay' allowFullScreen />
         <div className="project-info">
           <h4>{project.title}</h4>
-          <p className='description'>
-            <span className='year'>Made in {project.year}</span>
-            {project.desc}
-          </p>
+          <div className='description'>
+            <p>{project.desc}</p>
+            <span className="sep"></span>
+            <div className="tags">
+              <span className='badge'>Made in {project.year}</span>
+              <span className='badge'>Mobile</span>
+              <a 
+                href={project.src.replace('/embed/', '/watch/')} 
+                target='_blank' 
+                className='badge'
+                style={{background: "#e1002d"}}
+              >
+                <span>View in YouTube</span>
+                <i className="fa-light fa-arrow-up-right" />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
 
       <div className="tech-sheet">
-        <h2>Technical sheet</h2>
+        <h2>Tech stack</h2>
         {Array.isArray(project.softwaresUsed) && project.softwaresUsed.length > 0 && (
           <div className="softwares-used">
             {project.softwaresUsed.map(software => (
