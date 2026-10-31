@@ -15,7 +15,7 @@ function setProject(id: number, title: string, desc: string, year: number, src: 
   } as ProjectType;
 }
 
-function setSoftwareUsed(name: string, icon: string) {
+function setSoftwareOrTechUsed(name: string, icon: string) {
   return {
     name,
     icon: `/src/assets/icons/${icon}.svg`,
@@ -30,7 +30,21 @@ function setSoftwareUsed(name: string, icon: string) {
 // }
 
 const projects = {
-  development: [],
+  development: [
+    setProject(
+      projectId++,
+      "Museu de informática - DETIC",
+      "WordPress website maintained by DETIC (Diretoria Executiva de Tecnologia da Informação e Comunicação) that introduces the history of Unicamp's Computing and how the museum was created, showcasing its collection of vintage computers and related artifacts.",
+      2024,
+      "https://museu.detic.unicamp.br/museu/",
+      "",
+      [],
+      [
+        setSoftwareOrTechUsed("WordPress", "wordpress"),
+        setSoftwareOrTechUsed("PHP", "php"),
+      ]
+    )
+  ],
 
   motion: [
     setProject(
@@ -41,9 +55,21 @@ const projects = {
       "https://www.youtube.com/embed/60F1m6MEYwE",
       "https://img.youtube.com/vi/60F1m6MEYwE/hqdefault.jpg",
       [
-        setSoftwareUsed("After Effects", "ae"),
-        setSoftwareUsed("Photoshop", "ps"),
+        setSoftwareOrTechUsed("After Effects", "ae"),
+        setSoftwareOrTechUsed("Photoshop", "ps"),
       ],
+    ),
+    setProject(
+      projectId++,
+      "Pitch Setembro Amarelo - DETIC",
+      "Motion design video developed for DETIC's Yellow September campaign, aiming to raise awareness about suicide prevention through visuals and messaging. The intro shown at the start was also created by myself and it was re-used through other video projects.",
+      2024,
+      "https://www.youtube.com/embed/MkowIBrWK-0?si=aOkrxgheKQoNLpz8",
+      "https://img.youtube.com/vi/MkowIBrWK-0/hqdefault.jpg",
+      [
+        setSoftwareOrTechUsed("After Effects", "ae"),
+        setSoftwareOrTechUsed("Photoshop", "ps"),
+      ]
     ),
   ],
 

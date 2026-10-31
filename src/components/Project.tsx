@@ -28,7 +28,6 @@ const Project: React.FC<ProjectProps> = ({project}) => {
             <span className="sep"></span>
             <div className="tags">
               <span className='badge'>Made in {project.year}</span>
-              <span className='badge'>Mobile</span>
               <a 
                 href={project.src.replace('/embed/', '/watch/')} 
                 target='_blank' 
